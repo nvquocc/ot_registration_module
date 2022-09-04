@@ -31,9 +31,7 @@ class OTRegistrationLine(models.Model):
     attendance_note = fields.Char(string="Attendance Notes")
     warning_note = fields.Char(string='Warning')
     ot_registration_id = fields.Many2one('ot.registration', string="OT Registration ID")
-    employee_id_related = fields.Many2one('hr.employee', string='Employee', related='ot_registration_id.employee_id')
-    project_id_related = fields.Many2one('ot.registration.project', string='Project',
-                                         related='ot_registration_id.project_id')
+
 
     @api.depends("date_from", "date_to")
     def _compute_ot_hours(self):
